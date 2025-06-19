@@ -1,15 +1,30 @@
+import asyncio
 import os
+import dotenv
+from twitchBot import TwitchBot
 import eel
 
-# Set web files folder
-path = os.path.dirname(os.path.abspath(__file__))
-eel.init(os.path.join(path, 'web'))
 
-@eel.expose                         # Expose this function to Javascript
-def say_hello_py(x):
-    print('Hello from %s' % x)
+PATH = os.path.dirname(os.path.abspath(__file__))
 
-say_hello_py('Python World!')
-eel.say_hello_js('Python World!')   # Call a Javascript function
 
-eel.start('index.html', size=(300, 200))  # Start
+class TwitchTool:
+    def __init__(self):
+        dotenv.load_dotenv(os.path.join(PATH, '.env'))
+        eel.init(os.path.join(PATH, 'web'))
+        self.twitch_bot = TwitchBot(
+            token=os.getenv('TWITCH_OAUTH_TOKEN'),
+            client_id=os.getenv('TWITCH_CLIENT_ID'),
+            nick=os.getenv('TWITCH_NICK')
+        )
+
+    def start(self) -> None:
+        eel.start('index.html', size=(800, 600), block=False)
+        # await self.twitch_bot.start()
+
+        while True:
+            eel.sleep(10)
+
+if __name__ == "__main__":
+    tool = TwitchTool()
+    tool.start()

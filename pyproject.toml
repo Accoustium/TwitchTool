@@ -16,6 +16,7 @@ authors = [
 dependencies = [
     "requests>=2.31.0",
     "twitchio>=2.10.0",
+    "discord>=2.3.2",
     "python-dotenv",
     "pyinstaller",
     "eel[jinja2]",
