@@ -1,0 +1,26 @@
+[build-system]
+requires = ["setuptools>=80.9.0", "wheel>=0.45.1"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "TwitchTool"
+requires-python = ">=3.8"
+dynamic = ["version"]
+description = "A Python Tool to interact with multiple tools."
+readme = "README.md"
+license = "MIT"
+license-files = ["LICENSE"]
+authors = [
+    { name = "Accoustium", email = "accoustium@gmail.com" }
+]
+dependencies = [
+    "requests>=2.31.0",
+    "twitchio>=2.10.0",
+    "python-dotenv",
+    "pyinstaller",
+    "eel[jinja2]",
+]
+
+[project.urls]
+repository = "https://github.com/Accoustium/TwitchTool"
+issue-tracker = "https://github.com/Accoustium/TwitchTool/issues"
