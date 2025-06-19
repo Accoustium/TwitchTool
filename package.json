@@ -1,0 +1,11 @@
+{
+  "name": "twitchtool",
+  "version": "1.0.0",
+  "description": "This is a Twitch Tool, that uses Electron to display UI, and Python for the back-end.  It will house a Bot, Overlays, and Social Media Pusher.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Accoustium",
+  "license": "MIT"
+}
